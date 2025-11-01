@@ -939,19 +939,43 @@ footer {
 }
 
 /* ===============================
-   PERBAIKAN TAMPILAN MOBILE
+   PERBAIKAN TAMPILAN MOBILE (REVISI)
    =============================== */
 
-/* Berlaku untuk layar tablet dan di bawahnya */
+/* Berlaku untuk layar tablet dan di bawahnya (768px) */
 @media (max-width: 768px) {
   
-  /* 1. Memperbaiki paragraf agar tidak tumpang tindih */
-  .hero-content p {
-    font-size: 1rem;
-    max-width: 90%; /* Ini akan menghentikan teks dari tumpang tindih */
+  /* 1. Perbaiki Navbar */
+  .navbar {
+    flex-direction: column; /* Langsung tumpuk navbar di 768px */
+    gap: 1rem;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  /* 2. Mengecilkan panah agar tidak terlalu dominan */
+  /* 2. Perbaiki Judul H1 */
+  .hero-content h1 {
+    font-size: 2.5rem; /* Kecilkan H1 */
+    line-height: 1.3;  /* Beri jarak antar baris */
+  }
+
+  /* 3. Perbaiki Span (PENTING) */
+  .hero-content span {
+    min-width: unset;   /* Hapus min-width agar pas */
+    text-align: center; /* Pusatkan teks animasi */
+    font-size: 2.5rem;    /* Samakan ukurannya dengan H1 */
+  }
+  
+  /* 4. Perbaiki Paragraf */
+  .hero-content p {
+    font-size: 1rem;
+    max-width: 90%; /* Pastikan tidak tumpang tindih */
+    margin-top: 1rem;  /* Beri jarak dari judul */
+  }
+
+  /* 5. Kecilkan panah */
   .hero-nav {
     font-size: 2rem;
     padding: 0.5rem;
@@ -964,21 +988,24 @@ footer {
   }
 }
 
-/* Berlaku untuk layar ponsel (lebih sempit) */
+/* Berlaku untuk layar ponsel (lebih sempit, 480px) */
 @media (max-width: 480px) {
-
-  /* 3. Memperbaiki navbar yang berantakan */
-  .navbar {
-    flex-direction: column; /* Menumpuk logo di atas link */
-    gap: 1rem;
-  }
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
   
-  /* 4. Mengecilkan judul utama */
-  .hero-content h1 {
-    font-size: 2.2rem;
+  /* 6. Kecilkan judul lagi */
+  .hero-content h1,
+  .hero-content span {
+    font-size: 2rem; /* Buat lebih kecil lagi */
+    line-height: 1.4;
+  }
+
+  /* 7. Beri jarak lebih pada paragraf */
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  /* 8. Kecilkan tombol */
+  #btn-contact {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 }
