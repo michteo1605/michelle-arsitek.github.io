@@ -198,13 +198,32 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// ===============================
+// Animasi Parallax untuk Hero
+// ===============================
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset;
+  
+  // Ambil semua elemen yang ingin kita fade-out
   const heroContent = document.querySelector(".hero-content");
+  const heroNavPrev = document.querySelector(".hero-nav.prev");
+  const heroNavNext = document.querySelector(".hero-nav.next");
+  const heroDots = document.querySelector(".hero-dots");
 
   if (heroContent && scrolled < window.innerHeight) {
+    // Hitung opacity baru
+    const newOpacity = 1 - scrolled / 600;
+
+    // Terapkan efek parallax (gerakan) HANYA ke teks
     heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-    heroContent.style.opacity = 1 - scrolled / 600;
+    
+    // Terapkan efek fade-out ke SEMUA elemen
+    heroContent.style.opacity = newOpacity;
+    
+    // Pastikan elemen lain ada sebelum mengubahnya
+    if (heroNavPrev) heroNavPrev.style.opacity = newOpacity;
+    if (heroNavNext) heroNavNext.style.opacity = newOpacity;
+    if (heroDots) heroDots.style.opacity = newOpacity;
   }
 });
 

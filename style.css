@@ -937,3 +937,48 @@ footer {
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(230, 178, 186, 0.5);
 }
+
+/* ===============================
+   PERBAIKAN TAMPILAN MOBILE
+   =============================== */
+
+/* Berlaku untuk layar tablet dan di bawahnya */
+@media (max-width: 768px) {
+  
+  /* 1. Memperbaiki paragraf agar tidak tumpang tindih */
+  .hero-content p {
+    font-size: 1rem;
+    max-width: 90%; /* Ini akan menghentikan teks dari tumpang tindih */
+  }
+
+  /* 2. Mengecilkan panah agar tidak terlalu dominan */
+  .hero-nav {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+  .hero-nav.prev {
+    left: 0.5rem;
+  }
+  .hero-nav.next {
+    right: 0.5rem;
+  }
+}
+
+/* Berlaku untuk layar ponsel (lebih sempit) */
+@media (max-width: 480px) {
+
+  /* 3. Memperbaiki navbar yang berantakan */
+  .navbar {
+    flex-direction: column; /* Menumpuk logo di atas link */
+    gap: 1rem;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* 4. Mengecilkan judul utama */
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+}
